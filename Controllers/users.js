@@ -7,7 +7,7 @@ export const addUser= async (req,res,next)=>{
         const newUser= await new Users(addUser)
         await newUser.save((err)=>{
             if(err){
-                res.status(500).json('Error in Saving')
+                res.status(500).json(err)
             }
             else{
                 sendToken(newUser,201,res)
