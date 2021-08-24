@@ -19,6 +19,6 @@ app.use('/RestaurantSide',RestaurantSideOrders)
 app.use(errorHandler)
 
 const CONNECTION_URI=process.env.MONGO_CONNECTION_URI;
-mongoose.connect(CONNECTION_URI,{useNewUrlParser:true, useUnifiedTopology:true})
+mongoose.connect(CONNECTION_URI,{useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex:true})
     .then(()=>{app.listen(PORT,()=>{console.log(`process running on port: ${PORT}`)})})
     .catch((error)=>{console.log(error.message)})
