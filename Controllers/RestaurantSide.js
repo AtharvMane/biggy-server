@@ -35,9 +35,10 @@ export const addRestaurant= async (req,res,next)=>{
     
             const addRestaurant= req.body
             const newRestaurant= new Restaurant(addRestaurant)
+            newRestaurant.score=0;
             await newRestaurant.save((err)=>{
                 if(err){
-                    return next(new ErrorResponse("Some error occured in placing the Order please try again",500))
+                    return next(err)
                 }
                 else{
                     restaurantLogin(req,res,next)
