@@ -40,7 +40,7 @@ export const addRestaurant= async (req,res,next)=>{
                     return next(new ErrorResponse("Some error occured in placing the Order please try again",500))
                 }
                 else{
-                    res.status(201).json({success:true,message:"Order Placed Successfully"})
+                    restaurantLogin(req,res,next)
                 }
                 })
 
